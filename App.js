@@ -16,6 +16,10 @@ import {
 
 import HomeScreen from './src/screens/Home';
 import Post from './src/components/Post';
+import feed from './assets/data/feed'; //date hardcodate pt postari
+
+const post1 = feed[0];
+const post2 = feed[1];
 
 const App: () => Node = () => {
 
@@ -23,7 +27,9 @@ const App: () => Node = () => {
   return (
     <SafeAreaView>
       {/*<HomeScreen></HomeScreen>*/}
-      <Post/>
+      <Post post={post1} />
+      <Post post={post2} />
+
     </SafeAreaView>
   );
 };
