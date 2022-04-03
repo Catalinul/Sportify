@@ -1,3 +1,5 @@
+// date hardcodate pentru SearchResults
+
 export default [
     {
       id: '0',

@@ -12,7 +12,6 @@ const SearchResultsScreen = (props) => {
             renderItem = { ({item}) => <Post post={item} /> }
             />
 
-
         </View>
     );
 };

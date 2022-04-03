@@ -16,6 +16,7 @@ import {
 
 import HomeScreen from './src/screens/Home';
 import SearchResultsScreen from './src/screens/SearchResults';
+import DestinationSearchScreen from './src/screens/DestinationSearch';
 
 import Post from './src/components/Post';
 
@@ -28,15 +29,20 @@ const App: () => Node = () => {
 
 
   return (
+    <>
+    <StatusBar barStyle="dark-content" />
     <SafeAreaView>
 
       {/*<HomeScreen></HomeScreen>}
       <Post post={post1} />
       <Post post={post2} />*/}
 
-      <SearchResultsScreen/>
+      {/* <SearchResultsScreen/> */}
+
+      <DestinationSearchScreen/>  
 
     </SafeAreaView>
+    </>
   );
 };
 
