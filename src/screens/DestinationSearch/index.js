@@ -1,14 +1,17 @@
 import React, {useState} from 'react'; //useState - hook
-import { View, Text, TextInput, FlatList } from 'react-native';
+import { View, Text, TextInput, FlatList, Pressable} from 'react-native';
 import styles from './styles.js';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-
 import searchResults from '../../../assets/data/search';
+
+import { useNavigation } from '@react-navigation/native';
 
 const DestinationSearchScreen = (props) => {
 
-    const [inputText, setInputText] = useState('') //inputText - valoare; setInputText - functia care o actualizeaza (setter)
+    const [inputText, setInputText] = useState(''); //inputText - valoare; setInputText - functia care o actualizeaza (setter)
+
+    const navigation = useNavigation();
 
     return (
         <View style = {styles.container}>
@@ -21,18 +24,16 @@ const DestinationSearchScreen = (props) => {
             onChangeText = {setInputText} // setter-ul pt useState de mai sus
             />
 
-            
-
             {/* List of destination */}
             <FlatList 
                 data = {searchResults}
                 renderItem = {({item}) => (
-                    <View style = {styles.row}>
+                    <Pressable onPress = {() => navigation.navigate("Guests")} style = {styles.row}>
                         <View style = {styles.iconContainer}>
                             <Entypo name = {"location-pin"} size = {30} />
                         </View>
                         <Text style = {styles.locationText}> {item.description} </Text>
-                    </View>
+                    </Pressable>
                 ) }
             />
         </View>

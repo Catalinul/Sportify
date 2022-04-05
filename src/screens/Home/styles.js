@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: 20,
+        top: 25,
         zIndex: 100, /*ca sa apara peste imagine*/
     },
 

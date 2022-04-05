@@ -2,78 +2,89 @@ import React, {useState} from 'react'; //folosesc hook-ul useState pentru a tine
 import { View, Text, Pressable } from 'react-native';
 import styles from './styles.js'; 
 
+import { NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 
 const GuestsScreen = (props) => {
     const [adults, setAdults] = useState(0); // adults - valoarea, setAdults - setter, 0 - valoare initiala 
     const [childrens, setChildrens] = useState(0); // la fel ca mai sus
 
+    const navigation = useNavigation();
+
     return (
-        <View>
+        <View style = {{justifyContent: 'space-between', height: '100%'}}>
 
-            {/* Row 1: Adults */}
-            <View style = {styles.row} > 
+            <View>
+                {/* Row 1: Adults */}
+                <View style = {styles.row} > 
 
-                {/* Titles */}
-                <View> 
-                    <Text style={{fontWeight: 'bold', color: 'black'}}>Adults</Text>
-                    <Text style={{color: '#8d8d8d'}}>Ages 13 or above</Text>
+                    {/* Titles */}
+                    <View> 
+                        <Text style={{fontWeight: 'bold', color: 'black'}}>Adults</Text>
+                        <Text style={{color: '#8d8d8d'}}>Ages 13 or above</Text>
+                    </View>
+
+                    {/* Buttons with value */}
+                    <View style = {{flexDirection: 'row', alignItems: 'center'}}>
+                        {/* minus button */}
+                        <Pressable 
+                            onPress = { () => setAdults(Math.max(0, adults - 1)) }
+                            style = {styles.button}>
+                            <Text style={{fontSize: 20, color: 'black'}}> - </Text>
+                        </Pressable>
+
+                        {/* value */}
+                        <Text style= {{ marginHorizontal: 20, fontSize: 20}}> {adults} </Text> 
+                        {/* {adults} vine de la useState initializat la inceput */}
+
+                        {/* plus button */}
+                        <Pressable 
+                            onPress = { () => setAdults(adults + 1)  }
+                            style = {styles.button}>
+                            <Text style={{fontSize: 20, color: 'black'}}> + </Text>
+                        </Pressable>
+                    </View>
+
                 </View>
 
-                {/* Buttons with value */}
-                <View style = {{flexDirection: 'row', alignItems: 'center'}}>
-                    {/* minus button */}
-                    <Pressable 
-                        onPress = { () => setAdults(Math.max(0, adults - 1)) }
-                        style = {styles.button}>
-                        <Text style={{fontSize: 20, color: 'black'}}> - </Text>
-                    </Pressable>
+                {/* Row 2: Children */}
+                <View style = {styles.row} > 
 
-                    {/* value */}
-                    <Text style= {{ marginHorizontal: 20, fontSize: 20}}> {adults} </Text> 
-                    {/* {adults} vine de la useState initializat la inceput */}
+                    {/* Titles */}
+                    <View> 
+                        <Text style={{fontWeight: 'bold', color: 'black'}}>Childrens</Text>
+                        <Text style={{color: '#8d8d8d'}}>Ages 2 - 12</Text>
+                    </View>
 
-                    {/* plus button */}
-                    <Pressable 
-                        onPress = { () => setAdults(adults + 1)  }
-                        style = {styles.button}>
-                        <Text style={{fontSize: 20, color: 'black'}}> + </Text>
-                    </Pressable>
+                    {/* Buttons with value */}
+                    <View style = {{flexDirection: 'row', alignItems: 'center'}}>
+                        {/* minus button */}
+                        <Pressable 
+                            onPress = { () => setChildrens(Math.max(0, childrens - 1)) }
+                            style = {styles.button}>
+                            <Text style={{fontSize: 20, color: 'black'}}> - </Text>
+                        </Pressable>
+
+                        {/* value */}
+                        <Text style= {{ marginHorizontal: 20, fontSize: 20}}> {childrens} </Text> 
+                        {/* {adults} vine de la useState initializat la inceput */}
+
+                        {/* plus button */}
+                        <Pressable 
+                            onPress = { () => setChildrens(childrens + 1)  }
+                            style = {styles.button}>
+                            <Text style={{fontSize: 20, color: 'black'}}> + </Text>
+                        </Pressable>
+                    </View>
+
                 </View>
-
             </View>
 
-            {/* Row 2: Children */}
-            <View style = {styles.row} > 
-
-                {/* Titles */}
-                <View> 
-                    <Text style={{fontWeight: 'bold', color: 'black'}}>Childrens</Text>
-                    <Text style={{color: '#8d8d8d'}}>Ages 2 - 12</Text>
-                </View>
-
-                {/* Buttons with value */}
-                <View style = {{flexDirection: 'row', alignItems: 'center'}}>
-                    {/* minus button */}
-                    <Pressable 
-                        onPress = { () => setChildrens(Math.max(0, childrens - 1)) }
-                        style = {styles.button}>
-                        <Text style={{fontSize: 20, color: 'black'}}> - </Text>
-                    </Pressable>
-
-                    {/* value */}
-                    <Text style= {{ marginHorizontal: 20, fontSize: 20}}> {childrens} </Text> 
-                    {/* {adults} vine de la useState initializat la inceput */}
-
-                    {/* plus button */}
-                    <Pressable 
-                        onPress = { () => setChildrens(childrens + 1)  }
-                        style = {styles.button}>
-                        <Text style={{fontSize: 20, color: 'black'}}> + </Text>
-                    </Pressable>
-                </View>
-
-            </View>
-
+            <Pressable 
+            onPress = { ( ) => navigation.navigate("Home")}
+            style = {styles.searchButton}> 
+                <Text style = {styles.searchText}> Search </Text>
+            </Pressable>
+        
         </View>
     );
 };
