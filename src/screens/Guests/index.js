@@ -84,9 +84,9 @@ const GuestsScreen = (props) => {
                 screen: "Explore",
                 params: {
                     screen: "SearchResults"
-                }
-            })
-        }
+                        }
+                })
+                     }
             style = {styles.searchButton} > 
                 <Text style = {styles.searchText}> Search </Text>
             </Pressable>
