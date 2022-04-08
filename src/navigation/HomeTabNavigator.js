@@ -46,7 +46,7 @@ const HomeTabNavigator = (props) => {
             component = { HomeScreen }
             options = {{
                 tabBarIcon: ({ color }) => (
-                    <FontAwesome5 name="airbnb" size={25} color={color} />
+                    <FontAwesome5 name="inbox" size={25} color={color} />
                 )
             }}
             />
