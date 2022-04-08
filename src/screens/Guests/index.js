@@ -80,8 +80,14 @@ const GuestsScreen = (props) => {
             </View>
 
             <Pressable 
-            onPress = { ( ) => navigation.navigate("Home")}
-            style = {styles.searchButton}> 
+            onPress = { ( ) => navigation.navigate("Home", {
+                screen: "Explore",
+                params: {
+                    screen: "SearchResults"
+                }
+            })
+        }
+            style = {styles.searchButton} > 
                 <Text style = {styles.searchText}> Search </Text>
             </Pressable>
         

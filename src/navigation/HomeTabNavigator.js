@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createBottomTabNavigator  } from '@react-navigation/bottom-tabs';
-
+import ExploreNavigator from './ExploreNavigator';
 import HomeScreen from '../screens/Home';
 import DestinationSearchScreen from '../screens/DestinationSearch';
 
@@ -23,7 +23,7 @@ const HomeTabNavigator = (props) => {
 
             <Tab.Screen 
             name = {'Explore'} 
-            component = { HomeScreen }
+            component = { ExploreNavigator }
             options = {{
                 tabBarIcon: ({ color }) => (
                     <Fontisto name="search" size={25} color={color} />
