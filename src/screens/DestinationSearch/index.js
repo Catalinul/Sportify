@@ -42,9 +42,6 @@ const DestinationSearchScreen = (props) => {
                     renderRow = { (item)  => <SuggestionRow item = {item} />}
                 />    
 
-
-
-
         </View>
     );
 };
