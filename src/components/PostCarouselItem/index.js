@@ -24,7 +24,7 @@ const Post = (props) => {
 
                     {/* Facility Type*/}
                     <Text style={styles.facilityType}>
-                        Teren de fotbal sintetic ({post.bed}x{post.bedroom} mp)
+                        Teren de fotbal ({post.bed}x{post.bedroom} mp)
                     </Text>
 
                     {/* Type & Description */}

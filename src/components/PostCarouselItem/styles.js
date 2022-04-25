@@ -5,14 +5,24 @@ const styles = StyleSheet.create({
     container: {
         height: 120,
         padding: 5,
+
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
+
+        elevation: 10,
+        
     },
 
     innerContainer: {
         flexDirection: 'row',
         backgroundColor: 'white',
         borderRadius: 10,
-        overflow: 'hidden'
-
+        overflow: 'hidden',
     },
 
     image: {
@@ -20,7 +30,6 @@ const styles = StyleSheet.create({
         aspectRatio: 1,
         resizeMode: 'cover',
         borderRadius: 10,
-
     },
 
     facilityType: {
@@ -29,12 +38,11 @@ const styles = StyleSheet.create({
     },
 
     description: {
-        fontSize: 18,
-        lineHeight: 20
+        fontSize: 14,
     },
 
     prices: {
-        fontSize: 18,
+        fontSize: 15,
         marginVertical: 10,
     },
 
