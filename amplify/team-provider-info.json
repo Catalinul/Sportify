@@ -10,6 +10,11 @@
       "StackName": "amplify-sportify-dev-223857",
       "StackId": "arn:aws:cloudformation:eu-central-1:276764656272:stack/amplify-sportify-dev-223857/2af1f750-d22b-11ec-a34f-061e41a5f4ca",
       "AmplifyAppId": "d24d49tzg5qskc"
+    },
+    "categories": {
+      "auth": {
+        "sportify4d331590": {}
+      }
     }
   }
 }
