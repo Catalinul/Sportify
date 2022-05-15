@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "sportify",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "D:\\Files\\react_native_projects\\Sportify\\amplify\\backend\\api\\sportify\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-05-15T14:55:13.446Z",
+      "keyDescription": ""
+    }
+  }
+}

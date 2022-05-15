@@ -5,12 +5,17 @@ import CustomMarker from '../../components/CustomMarker';
 
 import PostCarouselItem from '../../components/PostCarouselItem';
 
-import places from '../../../assets/data/feed';
+import { API, graphqlOperation } from 'aws-amplify';
+import { listPosts } from '../../graphql/queries';
+
 
 
 const SearchResultsMap = (props) => {
 
+
     const [selectedPlaceId, setSelectedPlaceId] = useState( );
+
+    const [posts, setPosts] = useState( []);
 
     const flatlist = useRef();
     const map = useRef();
@@ -28,6 +33,25 @@ const SearchResultsMap = (props) => {
 
     const width = useWindowDimensions().width;
 
+    
+    useEffect( () => {
+        const fetchPosts = async () => {
+            //folosim try catch aici pentru ca o sa am niste network calls si se pot intampla multe lucruri proaste cu netul user ului
+            try {
+                const postsResult = await API.graphql(
+                    graphqlOperation(listPosts)
+                )
+                
+                setPosts(postsResult.data.listPosts.items);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        fetchPosts();
+    }, )
+
+
 
     //sincronizam selectarea locatiilor pe harta cu carouselul de locatii
     useEffect( () => {
@@ -36,14 +60,14 @@ const SearchResultsMap = (props) => {
             return;
         }
 
-        const index = places.findIndex(place => place.id === selectedPlaceId)
+        const index = posts.findIndex(place => place.id === selectedPlaceId)
         flatlist.current.scrollToIndex({index})
 
         //partea de mai jos e mai zoom in automat pe harta
-        const selectedPlace = places[index];
+        const selectedPlace = posts[index];
         const region = {
-            latitude: selectedPlace.coordinate.latitude,
-            longitude: selectedPlace.coordinate.longitude,
+            latitude: selectedPlace.latitude,
+            longitude: selectedPlace.longitude,
             latitudeDelta: 0.8,
             longitudeDelta: 0.8,
         }
@@ -64,9 +88,9 @@ const SearchResultsMap = (props) => {
                     }}
                 >
                     {/* o sa iterez prin toate locatiile hardcodate in feed si o sa le afisez folosind functia map */}
-                    {places.map(place => ( 
+                    {posts.map(place => ( 
                         <CustomMarker 
-                        coordinate = {place.coordinate} 
+                        coordinate = {{latitude: place.latitude, longitude: place.longitude}} 
                         price  = {place.newPrice}
                         isSelected = {place.id === selectedPlaceId}
                         onPress = { () => setSelectedPlaceId(place.id) }
@@ -80,7 +104,7 @@ const SearchResultsMap = (props) => {
 
                         <FlatList
                         ref = {flatlist }
-                        data = {places}
+                        data = {posts}
                         renderItem = { ({item}) => <PostCarouselItem post = {item}/>}
                         horizontal
                         showsHorizontalScrollIndicator = {false}
