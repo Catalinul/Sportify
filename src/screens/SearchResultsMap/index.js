@@ -12,6 +12,7 @@ import { listPosts } from '../../graphql/queries';
 
 const SearchResultsMap = (props) => {
 
+    const { guests } = props;
 
     const [selectedPlaceId, setSelectedPlaceId] = useState( );
 
@@ -39,7 +40,13 @@ const SearchResultsMap = (props) => {
             //folosim try catch aici pentru ca o sa am niste network calls si se pot intampla multe lucruri proaste cu netul user ului
             try {
                 const postsResult = await API.graphql(
-                    graphqlOperation(listPosts)
+                    graphqlOperation(listPosts , {
+                        filter: {
+                            maxGuests: {
+                                ge: guests
+                            }
+                        }
+                        })
                 )
                 
                 setPosts(postsResult.data.listPosts.items);

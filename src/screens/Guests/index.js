@@ -83,7 +83,12 @@ const GuestsScreen = (props) => {
             onPress = { ( ) => navigation.navigate("Home", {
                 screen: "Explore",
                 params: {
-                    screen: "SearchResults"
+                    screen: "SearchResults",
+                    //parametrii pentru filtrare api graphql
+                    params: {
+                        screen: 'list', //am luat numele asta din serachresultabnavigator
+                        guests: adults + childrens
+                    }
                         }
                 })
                      }
