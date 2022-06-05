@@ -5,18 +5,15 @@ import CustomMarker from '../../components/CustomMarker';
 
 import PostCarouselItem from '../../components/PostCarouselItem';
 
-import { API, graphqlOperation } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
 
 
 
 const SearchResultsMap = (props) => {
 
-    const { guests } = props;
+    const { posts } = props;
 
     const [selectedPlaceId, setSelectedPlaceId] = useState( );
-
-    const [posts, setPosts] = useState( []);
 
     const flatlist = useRef();
     const map = useRef();
@@ -34,29 +31,29 @@ const SearchResultsMap = (props) => {
 
     const width = useWindowDimensions().width;
 
-    
-    useEffect( () => {
-        const fetchPosts = async () => {
-            //folosim try catch aici pentru ca o sa am niste network calls si se pot intampla multe lucruri proaste cu netul user ului
-            try {
-                const postsResult = await API.graphql(
-                    graphqlOperation(listPosts , {
-                        filter: {
-                            maxGuests: {
-                                ge: guests
-                            }
-                        }
-                        })
-                )
+    // l-am comentat pt ca am mutat asta in searchtabresultstabnavigator
+    // useEffect( () => {
+    //     const fetchPosts = async () => {
+    //         //folosim try catch aici pentru ca o sa am niste network calls si se pot intampla multe lucruri proaste cu netul user ului
+    //         try {
+    //             const postsResult = await API.graphql(
+    //                 graphqlOperation(listPosts , {
+    //                     filter: {
+    //                         maxGuests: {
+    //                             ge: guests
+    //                         }
+    //                     }
+    //                     })
+    //             )
                 
-                setPosts(postsResult.data.listPosts.items);
-            } catch (e) {
-                console.log(e);
-            }
-        }
+    //             setPosts(postsResult.data.listPosts.items);
+    //         } catch (e) {
+    //             console.log(e);
+    //         }
+    //     }
 
-        fetchPosts();
-    }, )
+    //     fetchPosts();
+    // }, )
 
 
 

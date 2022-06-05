@@ -2,13 +2,15 @@ import React, {useState} from 'react'; //folosesc hook-ul useState pentru a tine
 import { View, Text, Pressable } from 'react-native';
 import styles from './styles.js'; 
 
-import { NavigationHelpersContext, useNavigation } from '@react-navigation/native';
+import { NavigationHelpersContext, useNavigation, useRoute } from '@react-navigation/native';
 
 const GuestsScreen = (props) => {
+
     const [adults, setAdults] = useState(0); // adults - valoarea, setAdults - setter, 0 - valoare initiala 
     const [childrens, setChildrens] = useState(0); // la fel ca mai sus
 
     const navigation = useNavigation();
+    const route = useRoute();
 
     return (
         <View style = {{justifyContent: 'space-between', height: '100%'}}>
@@ -86,8 +88,8 @@ const GuestsScreen = (props) => {
                     screen: "SearchResults",
                     //parametrii pentru filtrare api graphql
                     params: {
-                        screen: 'list', //am luat numele asta din serachresultabnavigator
-                        guests: adults + childrens
+                        guests: adults + childrens,
+                        viewport: route.params.viewport,
                     }
                         }
                 })
