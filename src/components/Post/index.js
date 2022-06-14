@@ -12,8 +12,11 @@ const Post = (props) => {
     //console.log("post din components/Post",post)
 
     const navigation = useNavigation();
+
     const goToDetailedPostPage = () => {
-        navigation.navigate('DetailedPost', {postId: post.id});
+        navigation.navigate(
+            'DetailedPost', {postId: post.id} 
+            );
     }
 
     return (

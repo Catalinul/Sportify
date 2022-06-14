@@ -9,20 +9,26 @@ const DetailedPost = (props) => {
     const posts = props.post;
     //const firstPost = posts[0];
 
+    //object = JSON.parse(posts);
+
    // let images = posts[0].image;
 
-    console.log("posts din components/DetailedPost",posts)
-    //console.log("images din components/DetailedPost",images)
+   const postsParsed = JSON.parse(JSON.stringify(posts))
+    console.log("postsParsed din components/DetailedPost",postsParsed)
+    //console.log("JSON posts[ din components/DetailedPost",JSON.parse(JSON.stringify(posts)))
+    //console.log("posts convertit in object din components/DetailedPost",object)
+
+    //console.log("images din components/DetailedPost",postsParsed[0].bed)
 
     return (
         <ScrollView>
             <View style={styles.container}>
                 
-                {/* <Image 
+                <Image 
                     style={styles.image} 
                     source={{url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Parcul_Tineretului.jpg/1024px-Parcul_Tineretului.jpg" }} 
-                /> */}
-{/* 
+                />
+
                 <Text style={styles.facilityType}>
                     Teren de fotbal sintetic ({firstPost.bed}x{firstPost.bedroom} mp)
                 </Text>
@@ -42,7 +48,7 @@ const DetailedPost = (props) => {
 
                 <Text style = {styles.longDescription}>
                     {firstPost.description}
-                </Text> */}
+                </Text>
 
             </View>
         </ScrollView>
