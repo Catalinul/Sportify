@@ -9,14 +9,15 @@ const Post = (props) => {
 
     const post = props.post;
 
-    const navigation = useNavigation();
+    //console.log("post din components/Post",post)
 
-    const goToPostPage = () => {
-        navigation.navigate('Post', {postId: post.id});
+    const navigation = useNavigation();
+    const goToDetailedPostPage = () => {
+        navigation.navigate('DetailedPost', {postId: post.id});
     }
 
     return (
-        <Pressable onPress={goToPostPage} style={styles.container}>
+        <Pressable onPress={goToDetailedPostPage} style={styles.container}>
             
             {/* Image */}
             <Image 

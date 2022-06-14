@@ -18,7 +18,7 @@ export default [
       },
     },
     {
-      id: '1',
+      id: '95de5b24-109d-429a-8b39-c81ffa2df5c3',
       image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg',
       type: 'Entire Flat',
       title: 'NEW lux. apartment in the center of Santa Cruz',

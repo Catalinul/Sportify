@@ -4,7 +4,7 @@ import SearchResults from '../screens/SearchResults';
 import SearchResultsMap from '../screens/SearchResultsMap';
 import { useRoute } from '@react-navigation/native';
 import { API, graphqlOperation } from 'aws-amplify';
-import { listPosts } from '../graphql/queries';
+import { listPosts,getPost } from '../graphql/queries';
 
 const Tab = createMaterialTopTabNavigator();
 

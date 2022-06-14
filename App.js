@@ -18,8 +18,9 @@ Amplify.configure(awsconfig)
 import { withAuthenticator } from 'aws-amplify-react-native'
 
 
-const App: () => Node = () => {
+//console.disableYellowBox = true; // am dat disable la warnings cu asta
 
+const App: () => Node = () => {
   return (
     <>
 

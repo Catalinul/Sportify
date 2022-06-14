@@ -1,44 +1,48 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, Image, ScrollView} from 'react-native';
 import styles from './styles.js';
  
 const DetailedPost = (props) => {
 
-    const post = props.post;
+    //console.log("props din components/DetailedPost",props)
+
+    const posts = props.post;
+    //const firstPost = posts[0];
+
+   // let images = posts[0].image;
+
+    console.log("posts din components/DetailedPost",posts)
+    //console.log("images din components/DetailedPost",images)
 
     return (
         <ScrollView>
             <View style={styles.container}>
                 
-                {/* Image */}
-                <Image 
+                {/* <Image 
                     style={styles.image} 
-                    source={{uri: post.image }} 
-                />
-
-                {/* Facility Type*/}
+                    source={{url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Parcul_Tineretului.jpg/1024px-Parcul_Tineretului.jpg" }} 
+                /> */}
+{/* 
                 <Text style={styles.facilityType}>
-                    Teren de fotbal sintetic ({post.bed}x{post.bedroom} mp)
+                    Teren de fotbal sintetic ({firstPost.bed}x{firstPost.bedroom} mp)
                 </Text>
 
-                {/* Type & Description */}
                 <Text style={styles.description} numberOfLines={2}>
-                    {post.type}. {post.title}
+                    {firstPost.type}. {firstPost.title}
                 </Text>
 
-                {/* Old price & new price */}
+
                 <Text style={styles.prices}>
-                    <Text style={styles.oldPrice}>${post.oldPrice} </Text>    
-                    <Text style={styles.newPrice}> ${post.newPrice}</Text>
+                    <Text style={styles.oldPrice}>${firstPost.oldPrice} </Text>    
+                    <Text style={styles.newPrice}> ${firstPost.newPrice}</Text>
                     / hour   
                 </Text>
 
-                {/* Total price */}
-                <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
+                <Text style={styles.totalPrice}>${firstPost.totalPrice} total</Text>
 
                 <Text style = {styles.longDescription}>
-                    {post.description}
-                </Text>
+                    {firstPost.description}
+                </Text> */}
 
             </View>
         </ScrollView>

@@ -10,14 +10,14 @@ const Post = (props) => {
 
     const navigation = useNavigation();
 
-    const goToPostPage = () => {
-        navigation.navigate('Post', {postId: post.id});
+    const goToDetailedPostPage = () => {
+        navigation.navigate('DetailedPost', {postId: post.id});
     }
 
 
     return (
 
-        <Pressable onPress = {goToPostPage} style = {[ styles.container, { width: width - 60 }]}>
+        <Pressable onPress = {goToDetailedPostPage} style = {[ styles.container, { width: width - 60 }]}>
             
             <View style = {styles.innerContainer}> 
 

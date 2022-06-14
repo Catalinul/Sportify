@@ -1,14 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { View, Text, FlatList, useWindowDimensions} from 'react-native';
+
 import MapView from 'react-native-maps'; 
 import CustomMarker from '../../components/CustomMarker';
-
 import PostCarouselItem from '../../components/PostCarouselItem';
 
 
 const SearchResultsMap = (props) => {
 
     const { posts } = props;
+
+    //console.log("posts din screens/searchresultsmap", posts);
 
     const [selectedPlaceId, setSelectedPlaceId] = useState( );
 
